@@ -1,3 +1,6 @@
+// I think I wrote this back in Feb 2016
+// It is now end of March 2016, I am horrified of this code.
+
 'use strict';
 let capitalize : function(str) {
   let ll;

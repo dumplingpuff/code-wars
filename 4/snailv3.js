@@ -10,7 +10,7 @@ function snail(arr) {
     thesnail = thesnail ? thesnail.concat(arr.shift()) : arr.shift();
     for(let i = 0; i < arr.length; i++) {
       thesnail.push(arr[i].pop());
-    }
+    }..
     thesnail = thesnail.concat((arr.pop() || []).reverse());
     for(let i = 0; i < arr.length; i++) {
       thesnail.push(arr[i].shift());
