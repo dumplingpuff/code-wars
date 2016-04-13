@@ -1,3 +1,4 @@
+'use strict';
 let denoms = [
   {sym: 'M', value: 1000},
   {sym: 'D', value: 500},
@@ -9,54 +10,74 @@ let denoms = [
 ];
 
 const toNumerals = function(num) {
-  let str = ''
+  let str = '';
   let denom;
   let sym;
 
-  denom = 100
-  sym = "C"
+  denom = 1000;
+  sym = 'M';
   for (let i = 0; i < parseInt(num / denom); i += 1){
     str += sym;
   }
   num %= denom;
 
-  denom = 50
-  sym = "L"
+  if (num /900 > 1) {
+    str += 'CM';
+    num -= 900;
+  }
+
+  denom = 100;
+  sym = 'C';
   for (let i = 0; i < parseInt(num / denom); i += 1){
     str += sym;
   }
   num %= denom;
 
-  denom = 10
-  sym = "X"
+  if (num === 90) {
+    str += 'XC';
+    num -= 90;
+  }
+
+  denom = 50;
+  sym = 'L';
+  for (let i = 0; i < parseInt(num / denom); i += 1){
+    str += sym;
+  }
+  num %= denom;
+
+  denom = 10;
+  sym = 'X';
   for (let i = 0; i < parseInt(num / denom); i += 1){
     str += sym;
   }
   num %= denom;
 
   if (num === 9) {
-    str += "IX"
+    str += 'IX';
     num -= 9;
   }
 
-  denom = 5
-  sym = "V"
+  denom = 5;
+  sym = 'V';
   for (let i = 0; i < parseInt(num / denom); i += 1){
     str += sym;
   }
   num %= denom;
 
   if (num === 4) {
-    str += "IV";
+    str += 'IV';
     num -= 4;
   }
 
-  denom = 1
-  sym = "I"
+  denom = 1;
+  sym = 'I';
   for (let i = 0; i < parseInt(num / denom); i += 1){
     str += sym;
   }
   num %= denom;
 
-  return str;
-}
+  console.log(str);
+  // return str;
+};
+
+toNumerals(1990);

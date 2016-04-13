@@ -27,7 +27,7 @@ let romanNumerals = {
   6: 'M', //1000
 };
 
-let convert = function (n) {
+let solution = function (n) {
   let arr = n.toString().split('').reverse();
   let base = 0;
   let str = '';
@@ -38,6 +38,11 @@ let convert = function (n) {
   console.log(arr);
   arr.forEach(function(i){
     let num = Number(i);
+    if(num === 0){
+      base+=2;
+      console.log(str);
+      return;
+    }
     if(num === 4) {
       addStr(romanNumerals[base] + romanNumerals[base + 1]);
       base += 2;
@@ -47,18 +52,16 @@ let convert = function (n) {
       addStr(romanNumerals[base - 2] + romanNumerals[base]);
     }
     else if (num < 4) {
-      addStr(romanNumerals[base].repeat(num));
+      addStr(num === 1 ? romanNumerals[base] : romanNumerals[base].repeat(num));
       base+=2;
     }
     else if (num > 4) {
       base+=2;
       addStr(romanNumerals[base - 1] + romanNumerals[base - 2].repeat(num - 5));
     }
-    else {
-      console.log('Number is greater than 9.');
-    }
   });
   console.log(str);
 };
 
-convert(888);
+
+solution(4040);
