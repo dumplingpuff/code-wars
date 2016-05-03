@@ -23,13 +23,30 @@
 
 
 // secret1 = "whatisup"
-// triplets1 = [
-//   ['t','u','p'],
-//   ['w','h','i'],
-//   ['t','s','u'],
-//   ['a','t','s'],
-//   ['h','a','p'],
-//   ['t','i','s'],
-//   ['w','h','s']
-// ]
-//
+let triplets1 = [
+  ['t','u','p'],
+  ['w','h','i'],
+  ['t','s','u'],
+  ['a','t','s'],
+  ['h','a','p'],
+  ['t','i','s'],
+  ['w','h','s']
+];
+
+
+
+function decipher (tri) {
+  let sorted = false;
+  let string = [];
+  tri.forEach(function(e,i,a) {
+    console.log(e[1] + ' ' + e[2]);
+    if(string.indexOf(e[1]) === -1 && string.indexOf([2]) === -1){
+      string.unshift(e[1],e[2]);
+    }
+    else {}
+  });
+  console.log(string);
+  console.log(triplets1);
+}
+
+decipher(triplets1);
