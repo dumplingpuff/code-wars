@@ -23,20 +23,22 @@
 
 
 function prefill(n, v) {
-  if(!v) {
-    return [undefined];
+  let arr = [];
+  if(Number(n) < 0 || isNaN(parseInt(n))  || n % 1 !== 0) {
+    throw new TypeError(`${n} is invalid`);
   }
-  else if(!n) {
-      return [];
-  }
-  else if(typeof n !== 'number') {
-    throw(`${n} is invalid`);
+  else if(n == 0) {
+    console.log([]);
+    return [];
   }
   else {
-    console.log(new Array(n).fill(v));
-    return new Array(n).fill(v);
-
+    while(arr.length < n) {
+      arr.push(v);
+    }
+    return arr;
   }
 }
-prefill(3, prefill(2,'2d'));
+
+
+prefill(13, null);
 // prefill(11, prefill(2, 'dash'));
